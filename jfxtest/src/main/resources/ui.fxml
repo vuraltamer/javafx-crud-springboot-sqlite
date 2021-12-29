@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.jfxtest.controller.PersonController">
+   <children>
+      <TextField fx:id="userNameText" promptText="UserName" />
+      <TextField fx:id="firstNameText" promptText="FirstName" />
+      <TextField fx:id="lastNameText" promptText="LastName" />
+      <TextField fx:id="msisdnText" promptText="Phone Number" />
+      <TextField fx:id="emailText" promptText="Email" />
+      <GridPane>
+      <Button fx:id="saveButton" onAction="#savePerson" prefHeight="26.0" prefWidth="150.0" text="Save" />
+      <Button fx:id="listPerson" onAction="#listPerson" prefHeight="26.0" prefWidth="150.0" text="List" GridPane.columnIndex="2" />
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
+      </GridPane>
+      <GridPane>
+      <Label fx:id="label" text="Label" />
+         <columnConstraints>
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
+      </GridPane>
+      <TableView fx:id="personTable" layoutX="20.0" layoutY="192.0" onMouseClicked="#showSelectedPerson" prefHeight="349.0" prefWidth="1066.0">
+         <columns>
+            <TableColumn fx:id="userNameColumn" prefWidth="75.0" text="UserName">
+               <cellValueFactory>
+                  <PropertyValueFactory property="userName" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="firstNameColumn" prefWidth="75.0" text="FirstName">
+               <cellValueFactory>
+                  <PropertyValueFactory property="firstName" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="lastNameColumn" prefWidth="75.0" text="LastName">
+               <cellValueFactory>
+                  <PropertyValueFactory property="lastName" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="msisdnColumn" prefWidth="75.0" text="Phone Number">
+               <cellValueFactory>
+                  <PropertyValueFactory property="msisdn" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="emailColumn" editable="true" prefWidth="75.0" text="Email">
+               <cellValueFactory>
+                  <PropertyValueFactory property="email" />
+               </cellValueFactory>
+            </TableColumn>
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+
+      <VBox fx:id="updatePersonVbox" visible="false">
+         <TextField fx:id="modifyUserNameText" promptText="UserName" />
+         <TextField fx:id="modifyFirstNameText" promptText="FirstName" />
+         <TextField fx:id="modifyLastNameText" promptText="LastName" />
+         <TextField fx:id="modifyMsisdnText" promptText="Phone Number" />
+         <TextField fx:id="modifyEmailText" promptText="Email" />
+         <GridPane>
+            <Button fx:id="updatePerson" onAction="#updatePerson" prefHeight="26.0" prefWidth="150.0" text="Update" />
+            <Button fx:id="deletePerson" onAction="#deletePerson" prefHeight="26.0" prefWidth="150.0" text="Delete" GridPane.columnIndex="2" />
+            <columnConstraints>
+               <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+            </rowConstraints>
+         </GridPane>
+      </VBox>
+
+   </children>
+</VBox>
